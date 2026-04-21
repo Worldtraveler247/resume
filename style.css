@@ -226,6 +226,17 @@ ul li::before {
     color: var(--text-gray);
 }
 
+.edu-item, .cert-item {
+    margin-bottom: 35px;
+}
+
+.credential {
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    font-family: monospace;
+    margin-top: 5px;
+}
+
 footer {
     text-align: center;
     border-top: 1px solid var(--security-blue);
