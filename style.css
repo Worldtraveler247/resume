@@ -226,6 +226,41 @@ ul li::before {
     color: var(--text-gray);
 }
 
+.project-box {
+    background: var(--security-blue);
+    padding: 30px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-gold);
+    margin-top: 20px;
+}
+
+.project-box h3 {
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.project-box p {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+}
+
 .edu-item, .cert-item {
     margin-bottom: 35px;
 }
