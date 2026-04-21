@@ -76,6 +76,23 @@ header {
     padding-bottom: 30px;
 }
 
+.header-content {
+    text-align: center;
+}
+
+.profile-pic-container {
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-gold);
+    box-shadow: 0 0 20px rgba(244, 208, 63, 0.2);
+}
+
 h1 {
     font-size: 3rem;
     color: var(--white);
