@@ -310,12 +310,81 @@ ul li::before {
     margin-top: 5px;
 }
 
-footer {
-    text-align: center;
-    border-top: 1px solid var(--security-blue);
-    padding-top: 30px;
-    font-size: 0.8rem;
+/* Skills section — pill tags */
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.skill-pill {
+    background: rgba(244, 208, 63, 0.1);
+    color: var(--accent-gold);
+    border: 1px solid rgba(244, 208, 63, 0.4);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Skills section — narrative entries */
+.skill-narratives {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill-narrative-item {
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 18px;
+}
+
+.skill-narrative-item h3 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.skill-narrative-item p {
     color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Technical Competencies section — two-column key/value rows */
+.tech-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tech-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 15px;
+    align-items: baseline;
+}
+
+.tech-label {
+    color: var(--accent-gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.tech-value {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .tech-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
 }
 
 .header-actions {
