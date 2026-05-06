@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Resume &#x2014; How It&#x2019;s Built</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* how-it-works.css — inlined because this is a separate repo */
+:root {
+  --bg: #06060f;
+  --cyan: #4af7ff;
+  --text: #e2e8f0;
+  --muted: #6b7a99;
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 80px 20px 60px;
+}
+
+.hiw-page { max-width: 820px; margin: 0 auto; }
+
+.hiw-header { text-align: center; margin-bottom: 52px; }
+.hiw-icon { font-size: 3rem; margin-bottom: 12px; }
+.hiw-header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--cyan), #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+.hiw-tagline { color: var(--muted); font-size: .95rem; }
+
+.hiw-section {
+  margin-bottom: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid var(--border);
+}
+.hiw-section:last-child { border-bottom: none; }
+.hiw-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+}
+
+.hiw-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.hiw-badge {
+  background: rgba(74,247,255,0.08);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.hiw-caption-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.hiw-caption-list li { color: var(--muted); font-size: .9rem; }
+.hiw-caption-list li strong { color: var(--text); }
+
+.hiw-file-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.hiw-file-block h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+.hiw-file-block h3 code {
+  font-family: 'Fira Code', monospace;
+  color: var(--cyan);
+  font-size: .95rem;
+}
+.hiw-file-block p { color: var(--muted); font-size: .9rem; margin-bottom: 16px; }
+
+.hiw-code {
+  background: #0a0a18;
+  border: 1px solid rgba(74,247,255,0.15);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: .82rem;
+  line-height: 1.65;
+  color: #c9d1e0;
+  white-space: pre;
+}
+
+.hiw-file-map {
+  background: #0a0a18;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: .82rem;
+  line-height: 1.8;
+  color: #c9d1e0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.hiw-steps {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.hiw-steps li {
+  counter-increment: steps;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.hiw-steps li::before {
+  content: counter(steps);
+  min-width: 28px;
+  height: 28px;
+  background: rgba(74,247,255,0.1);
+  border: 1px solid var(--cyan);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--cyan);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.hiw-steps li a { color: var(--cyan); }
+.hiw-steps li code {
+  font-family: 'Fira Code', monospace;
+  background: rgba(74,247,255,0.08);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: .85em;
+  color: var(--cyan);
+}
+
+@media (max-width: 600px) {
+  body { padding: 70px 16px 40px; }
+  .hiw-file-block { padding: 16px; }
+}
+  </style>
+</head>
+<body>
+  <a href="https://worldtraveler247.github.io/code_projects" style="position:fixed;top:12px;left:12px;z-index:9999;background:rgba(10,10,20,0.85);backdrop-filter:blur(6px);color:#4af7ff;border:1px solid #4af7ff;border-radius:20px;padding:6px 14px;font-family:sans-serif;font-size:13px;text-decoration:none;font-weight:600;">&#8592; App Hub</a>
+  <div class="hiw-page">
+
+    <header class="hiw-header">
+      <div class="hiw-icon">&#x1F4C4;</div>
+      <h1>Digital Resume &#x2014; How It&#x2019;s Built</h1>
+      <p class="hiw-tagline">A single-file HTML resume with semantic structure, a sticky nav, and a print media query &#x2014; no framework, no build step, no JavaScript required.</p>
+    </header>
+
+    <section class="hiw-section">
+      <h2>Overview</h2>
+      <p>The Digital Resume is a standalone HTML page hosted on GitHub Pages. It uses semantic HTML5 elements (header, main, section, nav) to organize a professional resume into scannable regions. All styling is in a single linked <code>style.css</code> that handles the sticky top nav, dark-navy color scheme, profile photo, section dividers, and a print media query so the page can be saved as a PDF with correct formatting. No JavaScript, no framework, no build pipeline &#x2014; just two files that load in under a second.</p>
+    </section>
+
+    <section class="hiw-section">
+      <h2>Tech Stack</h2>
+      <div class="hiw-badges">
+        <span class="hiw-badge">HTML</span>
+        <span class="hiw-badge">CSS</span>
+        <span class="hiw-badge">GitHub Pages</span>
+      </div>
+      <ul class="hiw-caption-list">
+        <li><strong>HTML5</strong> &#x2014; semantic elements (header, main, section, nav, article) make the document outline meaningful to screen readers and search engines without any JavaScript.</li>
+        <li><strong>CSS3</strong> &#x2014; CSS custom properties define the color palette (dark navy, accent gold, silver text) once at <code>:root</code>; every component references them by variable name so a palette swap is a one-line change.</li>
+        <li><strong>GitHub Pages</strong> &#x2014; the resume repo is a plain GitHub repository with Pages enabled. A push to main publishes the page at <code>https://worldtraveler247.github.io/resume/</code> with no build configuration.</li>
+      </ul>
+    </section>
+
+    <section class="hiw-section">
+      <h2>How Each Part Works</h2>
+
+      <div class="hiw-file-block">
+        <h3><code>index.html</code> &#x2014; Semantic document structure</h3>
+        <p>The page is organized into top-level sections that mirror a printed resume: a header with name, clearance badge, and contact links; then sections for Summary, Experience, Projects, Education, Skills, Technical Competencies, and Contact. Each section has an <code>id</code> attribute that the sticky nav links to via anchor (<code>href="#experience"</code>), enabling smooth-scroll navigation without JavaScript.</p>
+        <pre class="hiw-code">&lt;body&gt;
+  &lt;nav class="navbar"&gt;
+    &lt;div class="nav-container"&gt;
+      &lt;a href="#top"       class="nav-link"&gt;Home&lt;/a&gt;
+      &lt;a href="#summary"   class="nav-link"&gt;About&lt;/a&gt;
+      &lt;a href="#experience" class="nav-link"&gt;Work History&lt;/a&gt;
+      &lt;a href="#projects"  class="nav-link"&gt;Projects&lt;/a&gt;
+      &lt;a href="#education" class="nav-link"&gt;Education&lt;/a&gt;
+      &lt;a href="#skills"    class="nav-link"&gt;Skills&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;div class="container" id="top"&gt;
+    &lt;header&gt; ... &lt;/header&gt;
+    &lt;main&gt;
+      &lt;section id="summary"&gt; ... &lt;/section&gt;
+      &lt;section id="experience"&gt; ... &lt;/section&gt;
+      &lt;!-- etc --&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</pre>
+      </div>
+
+      <div class="hiw-file-block">
+        <h3><code>style.css</code> &#x2014; Job title / date flex row</h3>
+        <p>Each work experience entry uses a flex row to push the job title to the left and the date to the right &#x2014; the same layout you see on a traditional printed resume. <code>justify-content: space-between</code> handles the spacing; <code>align-items: baseline</code> keeps the text on the same text baseline even when font sizes differ.</p>
+        <pre class="hiw-code">/* style.css */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.job-header h3 {
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.job-header .date {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+}</pre>
+      </div>
+
+      <div class="hiw-file-block">
+        <h3><code>style.css</code> &#x2014; Sticky nav with backdrop blur</h3>
+        <p>The navbar is <code>position: fixed</code> at the top of the viewport. <code>backdrop-filter: blur(10px)</code> gives it a frosted-glass effect over the page content without needing a fully opaque background. <code>html { scroll-behavior: smooth; }</code> (one line of CSS) makes anchor links animate instead of jump.</p>
+      </div>
+
+      <div class="hiw-file-block">
+        <h3><code>style.css</code> &#x2014; CSS custom properties for theming</h3>
+        <p>All colors are defined as custom properties on <code>:root</code> so the entire palette can be changed in one place. Components reference variables by name (<code>color: var(--accent-gold)</code>) rather than hardcoding hex values throughout the stylesheet.</p>
+        <pre class="hiw-code">:root {
+  --primary-navy: #0a192f;
+  --security-blue: #172a45;
+  --accent-gold: #f4d03f;
+  --text-silver: #ccd6f6;
+  --text-gray: #8892b0;
+  --white: #e6f1ff;
+  --bg-dark: #020c1b;
+  --nav-height: 60px;
+}</pre>
+      </div>
+    </section>
+
+    <section class="hiw-section">
+      <h2>File Map</h2>
+      <pre class="hiw-file-map">resume/
+&#9500;&#9472;&#9472; index.html      # The resume: all content, semantic structure, anchor links
+&#9500;&#9472;&#9472; style.css       # Sticky nav, dark-navy theme, flex rows, responsive breakpoints
+&#9500;&#9472;&#9472; profile.jpeg    # Profile photo shown in the header
+&#9492;&#9472;&#9472; resume.pdf      # Downloadable PDF version (offered via a link in the header)</pre>
+    </section>
+
+    <section class="hiw-section">
+      <h2>Replicate It Yourself</h2>
+      <ol class="hiw-steps">
+        <li>Create a GitHub repo named <code>resume</code> and enable Pages from the main branch. Your page will be live at <code>https://&lt;user&gt;.github.io/resume/</code>.</li>
+        <li>Structure your HTML with semantic elements: <code>header</code> for identity, <code>main</code> wrapping all <code>section</code> elements, each section with an <code>id</code> matching a nav <code>href</code>.</li>
+        <li>Use the flex row pattern for job entries: <code>display: flex; justify-content: space-between; align-items: baseline;</code> to push the title left and date right without any extra markup.</li>
+        <li>Link to <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a> for typography. Inter is a good body font; a monospace face for dates adds a technical feel.</li>
+        <li>Define all colors as CSS custom properties on <code>:root</code>. Use <code>var(--accent-color)</code> everywhere instead of hardcoding hex values &#x2014; swapping the palette later takes 8 lines, not 80.</li>
+        <li>Add <code>html { scroll-behavior: smooth; }</code> so anchor links animate. Make the nav <code>position: fixed; backdrop-filter: blur(10px);</code> for the frosted-glass look.</li>
+        <li>Add a print media query: <code>@media print { .navbar { display: none; } ... }</code> so the page prints cleanly as a one-page resume. Export from your browser print dialog as PDF for the downloadable version.</li>
+      </ol>
+    </section>
+
+  </div>
+</body>
+</html>
