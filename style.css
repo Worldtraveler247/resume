@@ -161,19 +161,6 @@ section {
     font-size: 1.1rem;
 }
 
-.skill-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.skill-category h3 {
-    color: var(--accent-gold);
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
 ul {
     list-style: none;
 }
@@ -310,49 +297,7 @@ ul li::before {
     margin-top: 5px;
 }
 
-/* Skills section — pill tags */
-.skill-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 35px;
-}
-
-.skill-pill {
-    background: rgba(244, 208, 63, 0.1);
-    color: var(--accent-gold);
-    border: 1px solid rgba(244, 208, 63, 0.4);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
-
-/* Skills section — narrative entries */
-.skill-narratives {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.skill-narrative-item {
-    border-left: 3px solid var(--accent-gold);
-    padding-left: 18px;
-}
-
-.skill-narrative-item h3 {
-    color: var(--white);
-    font-size: 1rem;
-    margin-bottom: 6px;
-}
-
-.skill-narrative-item p {
-    color: var(--text-gray);
-    font-size: 0.95rem;
-}
-
-/* Technical Competencies section — two-column key/value rows */
+/* Technical Skills section — two-column key/value rows */
 .tech-grid {
     display: flex;
     flex-direction: column;
@@ -441,7 +386,6 @@ ul li::before {
 @media (max-width: 768px) {
     .container { padding: 30px; }
     h1 { font-size: 2.2rem; }
-    .skill-grid { grid-template-columns: 1fr; }
 
     .navbar {
         justify-content: flex-start;
