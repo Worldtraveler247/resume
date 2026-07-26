@@ -97,32 +97,20 @@
             </section>
 
             <section id="projects">
-                <h2>Technical Projects & Labs</h2>
-                <p>I maintain an active <strong>App Hub</strong> and a collection of GitHub repositories where I document my journey in Linux systems administration and security engineering.</p>
+                <h2>Technical Projects</h2>
+                <p>Selected infrastructure projects &mdash; working repositories with documented design decisions, built and tested on a RHEL 9 lab. Detection and hardening are two sides of the same posture: <strong>sshwatch</strong> detects and responds, <strong>linux-hardening-ansible</strong> prevents and proves it.</p>
 
                 <div class="project-highlights">
                     <div class="project-box">
-                        <h3>Interactive App Hub</h3>
-                        <p>A centralized landing page for my live web-based applications and security labs.</p>
-                        <a href="https://worldtraveler247.github.io/code_projects/" class="btn-secondary" target="_blank">Launch App Hub &rarr;</a>
+                        <h3>sshwatch &mdash; SSH Brute-Force Detector &amp; Auto-Responder</h3>
+                        <p>Python daemon for RHEL that tails sshd logs from journald, detects password-guessing with a sliding window (N failures in M seconds, bounded memory), and blocks attacking IPs with firewalld rich rules. An absolute allowlist protects the management plane &mdash; the tool can never sever its own bastion path. Detection logic is pure and side effects are dependency-injected, so the full decision path is unit-tested without root, firewalld, or a VM. Deploys as a systemd service.</p>
+                        <a href="https://github.com/Worldtraveler247/sshwatch" class="btn-secondary" target="_blank">View Repository &rarr;</a>
                     </div>
 
-                    <div class="project-grid-mini">
-                        <div class="project-mini-card">
-                            <h3>Infrastructure as Code</h3>
-                            <p>Building secure, scalable AWS environments using <strong>Terraform</strong>.</p>
-                            <a href="https://github.com/Worldtraveler247" target="_blank" class="text-link">View Repo &rarr;</a>
-                        </div>
-                        <div class="project-mini-card">
-                            <h3>Containerized Security</h3>
-                            <p>Deploying cybersecurity tools via <strong>Podman</strong> on Red Hat Enterprise Linux.</p>
-                            <a href="https://github.com/Worldtraveler247" target="_blank" class="text-link">View Repo &rarr;</a>
-                        </div>
-                        <div class="project-mini-card">
-                            <h3>Ansible Automation</h3>
-                            <p>Automating system configuration and preparing for the <strong>RHCE</strong> certification.</p>
-                            <a href="https://github.com/Worldtraveler247" target="_blank" class="text-link">View Repo &rarr;</a>
-                        </div>
+                    <div class="project-box">
+                        <h3>linux-hardening-ansible &mdash; CIS Hardening with Measurable Compliance</h3>
+                        <p>Role-based CIS hardening for RHEL 9, scored with OpenSCAP: scan &rarr; harden &rarr; re-scan, so every run produces a measurable compliance delta instead of a vague "more secure now." Enforces SSH lockdown, password policy, auditd rules, and kernel/network sysctls through owned drop-in files &mdash; the sshd config is validated with <strong>sshd -t</strong> before the daemon ever restarts, and a pre-flight guard refuses to disable password authentication if it would lock out the operator. SELinux stays enforcing.</p>
+                        <a href="https://github.com/Worldtraveler247/linux-hardening-ansible" class="btn-secondary" target="_blank">View Repository &rarr;</a>
                     </div>
                 </div>
             </section>
