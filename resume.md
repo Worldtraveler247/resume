@@ -55,13 +55,12 @@ Linux System Administrator (remote) with an active DoD Secret clearance — RHCS
 - Maintained data integrity and confidentiality by enforcing strict management protocols in compliance with privacy laws and high-level security standards
 - Troubleshot biometric devices and advanced software to ensure 100% operational readiness for mission-critical identification processes
 
-# Technical Projects & Labs
+# Technical Projects
 
-Active App Hub and GitHub portfolio documenting hands-on work in Linux systems administration and security engineering: \href{https://worldtraveler247.github.io/code_projects/}{worldtraveler247.github.io/code\_projects}
+Selected infrastructure projects — working repositories with documented design decisions, built and tested on a RHEL 9 lab. Detection and hardening are two sides of the same posture: **sshwatch** detects and responds, **linux-hardening-ansible** prevents and proves it. Full portfolio: \href{https://worldtraveler247.github.io/code_projects/}{worldtraveler247.github.io/code\_projects}
 
-- **Infrastructure as Code** — building secure, scalable AWS environments using Terraform
-- **Containerized Security** — deploying cybersecurity tools via Podman on Red Hat Enterprise Linux
-- **Ansible Automation** — automating system configuration and preparing for the RHCE certification
+- **sshwatch — SSH Brute-Force Detector & Auto-Responder** — Python daemon for RHEL that tails sshd logs from journald, detects password-guessing with a sliding window, and blocks attacking IPs with firewalld rich rules. An absolute allowlist protects the management plane — the tool can never sever its own bastion path. Detection logic is pure and unit-tested without root or a VM. Deploys as a systemd service. \href{https://github.com/Worldtraveler247/sshwatch}{github.com/Worldtraveler247/sshwatch}
+- **linux-hardening-ansible — CIS Hardening with Measurable Compliance** — Role-based CIS hardening for RHEL 9, scored with OpenSCAP: scan \rightarrow  harden \rightarrow  re-scan, so every run produces a measurable compliance delta. Enforces SSH lockdown, password policy, auditd rules, and kernel/network sysctls through owned drop-in files; the sshd config is validated with sshd -t before the daemon restarts, and a pre-flight guard refuses to disable password authentication if it would lock out the operator. SELinux stays enforcing. \href{https://github.com/Worldtraveler247/linux-hardening-ansible}{github.com/Worldtraveler247/linux-hardening-ansible}
 
 # Education & Certifications
 
