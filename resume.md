@@ -25,19 +25,20 @@ Aomori, Japan \quad | \quad eddie.camacho@gmail.com \quad | \quad
 
 # Professional Summary
 
-Red Hat Certified System Administrator and CompTIA Security+ professional moving into Linux systems administration, backed by a B.S. in Cybersecurity Management and an active Secret clearance. Currently responsible for maintaining availability of a distributed surveillance network — troubleshooting hardware, connectivity, and system failures — while administering identity verification and access credentialing for base personnel. Skilled in Linux administration (RHEL), user and access management, documentation, and 24/7 operational monitoring. Combines proven reliability in high-stakes, zero-failure environments with technical training in system hardening, networking, and automation.
+Linux System Administrator (remote) with an active DoD Secret clearance — RHCSA and CompTIA Security+ certified. I administer RHEL systems day-to-day and I'm completing RHCE training focused on Ansible automation. Before tech: 10+ years in cleared security operations in Japan and a B.S. in Cybersecurity Management and Policy. I build Linux and security projects in public. Targeting cleared Linux sysadmin, cloud support, and junior cloud security roles, remote or Japan-based.
 
 # Professional Experience
 
-**Linux System Administrator** — Procore-Plus Apprenticeship, Remote \hfill \emph{September 2025 – Present}
+**Linux System Administrator** — Pro-Core Plus, Remote \hfill \emph{September 2025 – Present}
 
+- Remote Linux system administration on RHEL-based systems: user and permission management, package management and patching, service and storage administration, log analysis and troubleshooting, and system hardening. Day-to-day work with Bash and Ansible-driven configuration in secure, cleared environments
 - Provisioned and configured Red Hat Enterprise Linux 9 servers across a VMware vSphere/ESXi environment using ISO installs, automated Kickstart, template-driven clones, and static networking via NetworkManager (nmcli)
 - Managed centralized identity and access with FreeIPA, Kerberos, and SSSD — enrolling hosts and administering users, groups, and host-based access controls across the estate
 - Hardened systems with SELinux and firewalld — non-standard service ports, rich-rule restrictions, and SSH limited to a bastion host with key-based authentication and root-login lockdown
 - Built persistent storage with LVM, ext4, and NFS — applying correct ownership, root_squash, and POSIX ACLs, mounted reliably through fstab
 - Centralized logging by routing host events through rsyslog into a Graylog SIEM for search and correlation
 
-**Armed Security Officer** — Chenega Security SBU, Aomori, Japan \hfill \emph{2014 – Present}
+**Armed Security Officer (EMT-Certified)** — Chenega Security International, Aomori, Japan \hfill \emph{July 2014 – Present}
 
 - Supported 24/7 security operations across two sister U.S. Army installations in Japan, conducting 500+ security patrols and inspections annually to maintain site safety, physical security posture, and regulatory compliance
 - Responded to 150+ emergency and high-risk incidents, delivering rapid emergency medical intervention as a certified EMT and applying de-escalation techniques, contributing to zero preventable injuries or losses during assigned shifts
@@ -64,10 +65,11 @@ Active App Hub and GitHub portfolio documenting hands-on work in Linux systems a
 
 # Education & Certifications
 
+- **Red Hat Certified Engineer (RHCE)** — Red Hat \hfill \emph{In Progress}
 - **Red Hat Certified System Administrator (RHCSA)** — Red Hat \hfill \emph{Issued Apr 2026 · Expires Apr 2029}
 - **CompTIA Security+ ce** — CompTIA \hfill \emph{Issued Jun 2025 · Expires Jun 2028}
-- **Linux for Jobs** — Yellow Tail Tech \hfill \emph{Completed Apr 2026}
-- **B.S. Cyber Security Management and Policy** — University of Maryland Global Campus \hfill \emph{April 2023}
+- **Linux for Jobs** — Yellowtail Tech \hfill \emph{Completed Apr 2026}
+- **B.S. Cybersecurity Management and Policy** — University of Maryland Global Campus \hfill \emph{April 2023}
 
 # Technical Skills
 
