@@ -99,7 +99,7 @@
 
             <section id="projects">
                 <h2>Technical Projects</h2>
-                <p>Selected infrastructure projects &mdash; working repositories with documented design decisions, built and tested on a RHEL 9 lab. Detection and hardening are two sides of the same posture: <strong>sshwatch</strong> detects and responds, <strong>linux-hardening-ansible</strong> prevents and proves it.</p>
+                <p>Selected infrastructure projects &mdash; working repositories with documented design decisions, built and tested on a RHEL 9 lab. Detection and hardening are two sides of the same posture: <strong>sshwatch</strong> detects and responds, <strong>linux-hardening-ansible</strong> prevents and proves it. <strong>proton-mail-agent</strong> is the operations record: a service I have run unattended since June 2026 and hardened after each failure.</p>
 
                 <div class="project-highlights">
                     <div class="project-box">
@@ -112,6 +112,12 @@
                         <h3>linux-hardening-ansible &mdash; CIS Hardening with Measurable Compliance</h3>
                         <p>Role-based CIS hardening for RHEL 9, scored with OpenSCAP: scan &rarr; harden &rarr; re-scan, so every run produces a measurable compliance delta instead of a vague "more secure now." Enforces SSH lockdown, password policy, auditd rules, and kernel/network sysctls through owned drop-in files &mdash; the sshd config is validated with <strong>sshd -t</strong> before the daemon ever restarts, and a pre-flight guard refuses to disable password authentication if it would lock out the operator. SELinux stays enforcing.</p>
                         <a href="https://github.com/Worldtraveler247/linux-hardening-ansible" class="btn-secondary" target="_blank">View Repository &rarr;</a>
+                    </div>
+
+                    <div class="project-box">
+                        <h3>proton-mail-agent &mdash; LLM Mail Triage Daemon with a Documented Threat Model</h3>
+                        <p>Treats every inbound email as untrusted input: the language model is confined to a forced, enum-constrained classification call, so a hostile message can earn a wrong label and nothing else. Mail-changing actions originate only from the owner over an allowlisted Telegram channel &mdash; replies require explicit confirmation and deletions are recoverable moves. Bot tokens are redacted at the logging sink, the IMAP hop uses a pinned certificate, and a dead-man alert reports any polling outage longer than six hours. Python 3.12 under launchd, with 52 offline unit tests. Source is private because it operates on a live mailbox; the design write-up is public.</p>
+                        <a href="https://worldtraveler247.github.io/code_projects/proton-mail-agent/how-it-works.html" class="btn-secondary" target="_blank">Read the Design Write-Up &rarr;</a>
                     </div>
                 </div>
             </section>
